@@ -1,0 +1,1317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>289</ID>
+      <Description>"生命不减"</Description>
+      <LastState/>
+      <Color>008000</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048,nineparchments_64bit.exe+10E9511)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+cmp [rbx+rcx*4+14],FFFF
+je exit
+mov [rbx+rcx*4],edi
+movzx r10d,word ptr [rbx+4E]
+
+exit:
+//mov edi,[rbx+rcx*4-4]
+//mov [rbx+rcx*4],edi
+movzx r10d,word ptr [rbx+4E]
+jmp returnhere
+
+nineparchments_64bit.exe+10E9511:
+jmp newmem
+nop
+nop
+nop
+
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+nineparchments_64bit.exe+10E9511:
+mov [rbx+rcx*4],edi
+movzx r10d,word ptr [rbx+4E]
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>290</ID>
+      <Description>"闪现技能无冷却"</Description>
+      <LastState/>
+      <Color>008080</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"nineparchments_64bit.exe"+45BD70) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [rcx+r8*4],2
+mov al,01
+
+exit:
+jmp returnhere
+
+"nineparchments_64bit.exe"+45BD70:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"nineparchments_64bit.exe"+45BD70:
+mov [rcx+r8*4],eax
+mov al,01
+//Alt: db 42 89 04 81 B0 01
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>291</ID>
+      <Description>"技能值无冷却"</Description>
+      <LastState/>
+      <Color>800080</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"nineparchments_64bit.exe"+4A06D6) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+movss xmm0,[rcx+r8*4-4]
+movss [rcx+r8*4],xmm0
+
+exit:
+jmp returnhere
+
+"nineparchments_64bit.exe"+4A06D6:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"nineparchments_64bit.exe"+4A06D6:
+movss [rcx+r8*4],xmm0
+//Alt: db F3 42 0F 11 04 81
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>301</ID>
+      <Description>"一击必杀"</Description>
+      <LastState/>
+      <Color>0000FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"nineparchments_64bit.exe"+10E950C) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [rsp+30],r15
+cmp [rbx+rcx*4+14],FFFF
+je exit
+mov edi,0
+
+exit:
+jmp returnhere
+
+"nineparchments_64bit.exe"+10E950C:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"nineparchments_64bit.exe"+10E950C:
+mov [rsp+30],r15
+//Alt: db 4C 89 7C 24 30
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>302</ID>
+      <Description>"-------------------------------------------------"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>C0C0C0</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>58</ID>
+      <Description>"技能"</Description>
+      <Options moHideChildren="1" moDeactivateChildrenAsWell="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>C0C0C0</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>61</ID>
+          <Description>"火焰类-----------------------------------------------------------------"</Description>
+          <Options moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0000FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>139</ID>
+              <Description>"焰束"</Description>
+              <LastState Value="8" RealAddress="227CB9D5BE4"/>
+              <Color>0000FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2C4</Offset>
+                <Offset>8</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>68</ID>
+              <Description>"燃石"</Description>
+              <LastState Value="2" RealAddress="227CCBF425C"/>
+              <Color>0000FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2DC</Offset>
+                <Offset>98</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>57</ID>
+              <Description>"魔咒火球阵"</Description>
+              <LastState Value="1" RealAddress="227CCBF21BC"/>
+              <Color>0000FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2DC</Offset>
+                <Offset>A8</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>136</ID>
+              <Description>"火焰炸弹"</Description>
+              <LastState Value="3" RealAddress="227CBA24650"/>
+              <Color>0000FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>290</Offset>
+                <Offset>B0</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>76</ID>
+              <Description>"烈焰弹串"</Description>
+              <LastState Value="2" RealAddress="227CCBF45FC"/>
+              <Color>0000FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2DC</Offset>
+                <Offset>C0</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>90</ID>
+              <Description>"小型火球"</Description>
+              <LastState Value="8" RealAddress="227C9C27FB0"/>
+              <Color>0000FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2E0</Offset>
+                <Offset>A0</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>27</ID>
+              <Description>"大型火球"</Description>
+              <LastState Value="2" RealAddress="227C9C25B20"/>
+              <Color>0000FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2E0</Offset>
+                <Offset>E8</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>70</ID>
+              <Description>"烈焰弹幕"</Description>
+              <LastState Value="40" RealAddress="227C9C283C0"/>
+              <Color>0000FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2E0</Offset>
+                <Offset>B8</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>135</ID>
+              <Description>"烈焰图腾"</Description>
+              <LastState Value="1" RealAddress="227CCBF133C"/>
+              <Color>0000FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2DC</Offset>
+                <Offset>C8</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>62</ID>
+          <Description>"寒冰类-----------------------------------------------------------------"</Description>
+          <Options moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>FF0000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>140</ID>
+              <Description>"冰束"</Description>
+              <LastState Value="8" RealAddress="227CB9D69A4"/>
+              <Color>FF0000</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2C4</Offset>
+                <Offset>f8</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>31</ID>
+              <Description>"寒冰弹串"</Description>
+              <LastState Value="2" RealAddress="227CCBF1E1C"/>
+              <Color>FF0000</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2DC</Offset>
+                <Offset>110</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>79</ID>
+              <Description>"寒霜云"</Description>
+              <LastState Value="2" RealAddress="227CCBF4D3C"/>
+              <Color>FF0000</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2DC</Offset>
+                <Offset>D0</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12</ID>
+              <Description>"冰片飞刀"</Description>
+              <LastState Value="8" RealAddress="227C9C28BE0"/>
+              <Color>FF0000</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2E0</Offset>
+                <Offset>D8</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>137</ID>
+              <Description>"寒冰冲击波"</Description>
+              <LastState Value="4" RealAddress="227CBA266D0"/>
+              <Color>FF0000</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>290</Offset>
+                <Offset>108</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>146</ID>
+              <Description>"寒霜喷雾"</Description>
+              <LastState Value="3" RealAddress="227C8C03F0C"/>
+              <Color>FF0000</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2FC</Offset>
+                <Offset>18</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>74</ID>
+              <Description>"寒冰弹幕"</Description>
+              <LastState Value="40" RealAddress="227C8D9DBD0"/>
+              <Color>FF0000</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2E0</Offset>
+                <Offset>100</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>145</ID>
+              <Description>"疯狂雹暴"</Description>
+              <LastState Value="1" RealAddress="227CCBF2C9C"/>
+              <Color>FF0000</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2DC</Offset>
+                <Offset>20</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>59</ID>
+          <Description>"闪电类-----------------------------------------------------------------"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>00E8E8</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>118</ID>
+              <Description>"闪电喷雾"</Description>
+              <LastState Value="3" RealAddress="227C8C042FC"/>
+              <Color>00E8E8</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2FC</Offset>
+                <Offset>78</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>131</ID>
+              <Description>"闪电弹幕"</Description>
+              <LastState Value="40" RealAddress="227C9C27BA0"/>
+              <Color>00E8E8</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2E0</Offset>
+                <Offset>70</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>115</ID>
+              <Description>"闪电图腾"</Description>
+              <LastState Value="1" RealAddress="227CCBF499C"/>
+              <Color>00E8E8</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2DC</Offset>
+                <Offset>88</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>18</ID>
+              <Description>"闪电波"</Description>
+              <LastState Value="3" RealAddress="227CBA26390"/>
+              <Color>00E8E8</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>290</Offset>
+                <Offset>90</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>84</ID>
+              <Description>"闪电炸顶"</Description>
+              <LastState Value="2" RealAddress="227CB14834C"/>
+              <Color>00E8E8</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2DC</Offset>
+                <Offset>198</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>134</ID>
+              <Description>"闪电束"</Description>
+              <LastState Value="8" RealAddress="227CB9D5F54"/>
+              <Color>00E8E8</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2C4</Offset>
+                <Offset>68</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>133</ID>
+              <Description>"能量环"</Description>
+              <LastState Value="1" RealAddress="227CBA26D50"/>
+              <Color>00E8E8</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>290</Offset>
+                <Offset>150</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>132</ID>
+              <Description>"附著型能量环"</Description>
+              <LastState Value="1" RealAddress="227CA6DB6A0"/>
+              <Color>00E8E8</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>290</Offset>
+                <Offset>178</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>72</ID>
+              <Description>"闪电弹串"</Description>
+              <LastState Value="2" RealAddress="227CCBF3B1C"/>
+              <Color>00E8E8</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2DC</Offset>
+                <Offset>80</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>93</ID>
+              <Description>"闪电球"</Description>
+              <LastState Value="8" RealAddress="227C9C26340"/>
+              <Color>00E8E8</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2E0</Offset>
+                <Offset>0</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>63</ID>
+          <Description>"死亡类-----------------------------------------------------------------"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>D200D2</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>130</ID>
+              <Description>"死亡波束"</Description>
+              <LastState Value="8" RealAddress="227CB9D62C4"/>
+              <Color>D200D2</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2C4</Offset>
+                <Offset>48</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>109</ID>
+              <Description>"致命自杀炸弹"</Description>
+              <LastState Value="1" RealAddress="227CCBF377C"/>
+              <Color>D200D2</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2DC</Offset>
+                <Offset>60</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>111</ID>
+              <Description>"死亡光圈"</Description>
+              <LastState Value="1" RealAddress="227CCBF3EBC"/>
+              <Color>D200D2</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2DC</Offset>
+                <Offset>40</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>120</ID>
+              <Description>"传染性恶咒"</Description>
+              <LastState Value="1" RealAddress="227CCBF255C"/>
+              <Color>D200D2</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2DC</Offset>
+                <Offset>118</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>155</ID>
+              <Description>"死亡弹幕"</Description>
+              <LastState Value="40" RealAddress="227C9C27790"/>
+              <Color>D200D2</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2E0</Offset>
+                <Offset>58</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>153</ID>
+              <Description>"死亡毒花"</Description>
+              <LastState Value="2" RealAddress="227CB1486EC"/>
+              <Color>D200D2</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2DC</Offset>
+                <Offset>148</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>113</ID>
+              <Description>"脉冲波环"</Description>
+              <LastState Value="1.5" RealAddress="227CB148E2C"/>
+              <Color>D200D2</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2DC</Offset>
+                <Offset>158</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>147</ID>
+              <Description>"限值死亡喷雾"</Description>
+              <LastState Value="6" RealAddress="2278AF83D64"/>
+              <Color>D200D2</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>324</Offset>
+                <Offset>30</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>96</ID>
+              <Description>"死亡法术球"</Description>
+              <LastState Value="6" RealAddress="227C9C26B60"/>
+              <Color>D200D2</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2E0</Offset>
+                <Offset>50</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>150</ID>
+              <Description>"死亡之咒"</Description>
+              <LastState Value="5" RealAddress="22791F94E48"/>
+              <Color>D200D2</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>318</Offset>
+                <Offset>128</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>21</ID>
+              <Description>"连锁死亡射弹"</Description>
+              <LastState Value="3" RealAddress="227C9C28FF0"/>
+              <Color>D200D2</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2E0</Offset>
+                <Offset>38</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>127</ID>
+          <Description>"死亡治疗类------------------------------------------------------------"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0080FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>100</ID>
+              <Description>"生死曲线弹"</Description>
+              <LastState Value="6" RealAddress="227C8D9DFE0"/>
+              <Color>0080FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2E0</Offset>
+                <Offset>180</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>97</ID>
+              <Description>"盗命治疗弹"</Description>
+              <LastState Value="2" RealAddress="227C8D9F840"/>
+              <Color>0080FF</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2E0</Offset>
+                <Offset>168</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>60</ID>
+          <Description>"治疗类-----------------------------------------------------------------"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>00F200</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>141</ID>
+              <Description>"治疗喷雾"</Description>
+              <LastState Value="3.75" RealAddress="227C8C04ECC"/>
+              <Color>00F200</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2FC</Offset>
+                <Offset>e0</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>159</ID>
+              <Description>"治疗弹幕"</Description>
+              <LastState Value="50" RealAddress="227C8D9E800"/>
+              <Color>00FF00</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2E0</Offset>
+                <Offset>130</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>158</ID>
+              <Description>"生命弹串"</Description>
+              <LastState Value="2.5" RealAddress="227CCBF303C"/>
+              <Color>00FF00</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2DC</Offset>
+                <Offset>138</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>25</ID>
+              <Description>"小型生命魔环"</Description>
+              <LastState Value="3.75" RealAddress="227CBA26050"/>
+              <Color>00F200</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>290</Offset>
+                <Offset>160</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>143</ID>
+              <Description>"近程群疗"</Description>
+              <LastState Value="1.25" RealAddress="227CA6D9960"/>
+              <Color>00F200</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>290</Offset>
+                <Offset>188</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>157</ID>
+              <Description>"弧形跳跃治疗"</Description>
+              <LastState Value="3.75" RealAddress="227C9C26F70"/>
+              <Color>00F200</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2E0</Offset>
+                <Offset>28</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>41</ID>
+              <Description>"大型生命魔环"</Description>
+              <LastState Value="1.25" RealAddress="227CCBF28FC"/>
+              <Color>00F200</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2DC</Offset>
+                <Offset>120</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>151</ID>
+              <Description>"治疗波束"</Description>
+              <LastState Value="10" RealAddress="227CB9DCD54"/>
+              <Color>00F200</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2C4</Offset>
+                <Offset>10</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>35</ID>
+              <Description>"大型治疗球"</Description>
+              <LastState Value="2.5" RealAddress="227C9C29400"/>
+              <Color>00F200</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2E0</Offset>
+                <Offset>F0</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>65</ID>
+          <Description>"其他类-----------------------------------------------------------------"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>C0C0C0</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>82</ID>
+              <Description>"蒸汽束"</Description>
+              <LastState Value="8" RealAddress="227CB9D7764"/>
+              <Color>C0C0C0</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2C4</Offset>
+                <Offset>170</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>129</ID>
+              <Description>"阿玛迪斯的魔箱"</Description>
+              <LastState Value="1" RealAddress="227CB14BD4C"/>
+              <Color>C0C0C0</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>2DC</Offset>
+                <Offset>190</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>128</ID>
+              <Description>"穿心暗影"</Description>
+              <LastState Value="2.200000048" RealAddress="2278AF841C0"/>
+              <Color>C0C0C0</Color>
+              <VariableType>Float</VariableType>
+              <Address>"THREADSTACK0"-00000168</Address>
+              <Offsets>
+                <Offset>330</Offset>
+                <Offset>140</Offset>
+                <Offset>70</Offset>
+                <Offset>C8</Offset>
+                <Offset>370</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>292</ID>
+      <Description>"小型火球实例"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>C0C0C0</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>293</ID>
+          <Description>"技能上限值 - 8"</Description>
+          <LastState Value="50" RealAddress="227C9C27FA8"/>
+          <Color>0000FF</Color>
+          <VariableType>Float</VariableType>
+          <Address>"THREADSTACK0"-00000168</Address>
+          <Offsets>
+            <Offset>2E0-8</Offset>
+            <Offset>A0</Offset>
+            <Offset>70</Offset>
+            <Offset>C8</Offset>
+            <Offset>370</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>295</ID>
+          <Description>"技能上限值 - 4"</Description>
+          <LastState Value="8" RealAddress="227C9C27FAC"/>
+          <Color>0000FF</Color>
+          <VariableType>Float</VariableType>
+          <Address>"THREADSTACK0"-00000168</Address>
+          <Offsets>
+            <Offset>2E0-4</Offset>
+            <Offset>A0</Offset>
+            <Offset>70</Offset>
+            <Offset>C8</Offset>
+            <Offset>370</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>294</ID>
+          <Description>"技能值 +0"</Description>
+          <LastState Value="8" RealAddress="227C9C27FB0"/>
+          <Color>0000FF</Color>
+          <VariableType>Float</VariableType>
+          <Address>"THREADSTACK0"-00000168</Address>
+          <Offsets>
+            <Offset>2E0</Offset>
+            <Offset>A0</Offset>
+            <Offset>70</Offset>
+            <Offset>C8</Offset>
+            <Offset>370</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>296</ID>
+          <Description>"技能格值（每一个技能大格的技能值）+8"</Description>
+          <LastState Value="1" RealAddress="227C9C27FB8"/>
+          <Color>0000FF</Color>
+          <VariableType>Float</VariableType>
+          <Address>"THREADSTACK0"-00000168</Address>
+          <Offsets>
+            <Offset>2E0+8</Offset>
+            <Offset>A0</Offset>
+            <Offset>70</Offset>
+            <Offset>C8</Offset>
+            <Offset>370</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>297</ID>
+          <Description>"技能攻速 +3C"</Description>
+          <LastState Value="1" RealAddress="227C9C27FEC"/>
+          <Color>0000FF</Color>
+          <VariableType>Float</VariableType>
+          <Address>"THREADSTACK0"-00000168</Address>
+          <Offsets>
+            <Offset>2E0+3C</Offset>
+            <Offset>A0</Offset>
+            <Offset>70</Offset>
+            <Offset>C8</Offset>
+            <Offset>370</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>298</ID>
+          <Description>"技能出现的起始高度 +7C"</Description>
+          <LastState Value="1.25" RealAddress="227C9C2802C"/>
+          <Color>0000FF</Color>
+          <VariableType>Float</VariableType>
+          <Address>"THREADSTACK0"-00000168</Address>
+          <Offsets>
+            <Offset>2E0+7C</Offset>
+            <Offset>A0</Offset>
+            <Offset>70</Offset>
+            <Offset>C8</Offset>
+            <Offset>370</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>299</ID>
+          <Description>"技能出现的起始距离 +80"</Description>
+          <LastState Value="1" RealAddress="227C9C28030"/>
+          <Color>0000FF</Color>
+          <VariableType>Float</VariableType>
+          <Address>"THREADSTACK0"-00000168</Address>
+          <Offsets>
+            <Offset>2E0+80</Offset>
+            <Offset>A0</Offset>
+            <Offset>70</Offset>
+            <Offset>C8</Offset>
+            <Offset>370</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>300</ID>
+          <Description>"技能飞行速度 +84"</Description>
+          <LastState Value="17" RealAddress="227C9C28034"/>
+          <Color>0000FF</Color>
+          <VariableType>Float</VariableType>
+          <Address>"THREADSTACK0"-00000168</Address>
+          <Offsets>
+            <Offset>2E0+84</Offset>
+            <Offset>A0</Offset>
+            <Offset>70</Offset>
+            <Offset>C8</Offset>
+            <Offset>370</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>32</ID>
+      <Description>"闪现技能数"</Description>
+      <LastState Value="2" RealAddress="2278AF82454"/>
+      <Color>C0C0C0</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"THREADSTACK0"-00000168</Address>
+      <Offsets>
+        <Offset>3F4</Offset>
+        <Offset>80</Offset>
+        <Offset>0</Offset>
+        <Offset>E8</Offset>
+        <Offset>370</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>160</ID>
+      <Description>"血量上限"</Description>
+      <LastState Value="450" RealAddress="227D2A14250"/>
+      <Color>C0C0C0</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"THREADSTACK0"-00000168</Address>
+      <Offsets>
+        <Offset>4B8</Offset>
+        <Offset>0</Offset>
+        <Offset>110</Offset>
+        <Offset>C8</Offset>
+        <Offset>370</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>33</ID>
+      <Description>"血量"</Description>
+      <LastState Value="450" RealAddress="227D2A14254"/>
+      <Color>C0C0C0</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"THREADSTACK0"-00000168</Address>
+      <Offsets>
+        <Offset>4BC</Offset>
+        <Offset>0</Offset>
+        <Offset>110</Offset>
+        <Offset>C8</Offset>
+        <Offset>370</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>287</ID>
+      <Description>"血量-[5B4]"</Description>
+      <LastState Value="450" RealAddress="227D2A14254"/>
+      <Color>C0C0C0</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"THREADSTACK0"-00000168</Address>
+      <Offsets>
+        <Offset>5B4</Offset>
+        <Offset>10</Offset>
+        <Offset>B0</Offset>
+        <Offset>C8</Offset>
+        <Offset>370</Offset>
+      </Offsets>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>替换了 mov [rbx+rcx*4],edi</Description>
+      <AddressString>nineparchments_64bit.exe+10E9511</AddressString>
+      <Before>
+        <Byte>4C</Byte>
+        <Byte>89</Byte>
+        <Byte>7C</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>3C</Byte>
+        <Byte>8B</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>B7</Byte>
+        <Byte>53</Byte>
+        <Byte>4E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>替换了 movzx r10d,word ptr [rbx+4E]</Description>
+      <AddressString>nineparchments_64bit.exe+10E9514</AddressString>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+        <Byte>89</Byte>
+        <Byte>3C</Byte>
+        <Byte>8B</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>B7</Byte>
+        <Byte>53</Byte>
+        <Byte>4E</Byte>
+      </Actual>
+      <After>
+        <Byte>49</Byte>
+        <Byte>03</Byte>
+        <Byte>C2</Byte>
+        <Byte>8B</Byte>
+        <Byte>0C</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>替换了 mov [rbx+rcx*4],edi</Description>
+      <AddressString>nineparchments_64bit.exe+10E9511</AddressString>
+      <Before>
+        <Byte>4C</Byte>
+        <Byte>89</Byte>
+        <Byte>7C</Byte>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>3C</Byte>
+        <Byte>8B</Byte>
+      </Actual>
+      <After>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>B7</Byte>
+        <Byte>53</Byte>
+        <Byte>4E</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>替换了 movzx r10d,word ptr [rbx+4E]</Description>
+      <AddressString>nineparchments_64bit.exe+10E9514</AddressString>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>30</Byte>
+        <Byte>89</Byte>
+        <Byte>3C</Byte>
+        <Byte>8B</Byte>
+      </Before>
+      <Actual>
+        <Byte>44</Byte>
+        <Byte>0F</Byte>
+        <Byte>B7</Byte>
+        <Byte>53</Byte>
+        <Byte>4E</Byte>
+      </Actual>
+      <After>
+        <Byte>49</Byte>
+        <Byte>03</Byte>
+        <Byte>C2</Byte>
+        <Byte>8B</Byte>
+        <Byte>0C</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

@@ -1,0 +1,1164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>73</ID>
+      <Description>"1.99s"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>39</ID>
+          <Description>"提升个人十倍伤害"</Description>
+          <LastState/>
+          <Color>008080</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov ecx,[ebp-10]
+cmp edi,0
+je exit
+imul ecx,ecx,A
+
+
+exit:
+sub eax,ecx
+jmp returnhere
+
+"rabiribi.exe"+8D363:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+8D363:
+mov ecx,[ebp-10]
+sub eax,ecx
+//Alt: db 8B 4D F0 29 C8
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>72</ID>
+          <Description>"无限金钱"</Description>
+          <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>0080FF</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>70</ID>
+              <Description>"无限金钱-打怪"</Description>
+              <LastState/>
+              <Color>0080FF</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//mov [rabiribi.exe+167608C],eax
+mov [rabiribi.exe+167608C],0001869F
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+1C10EA:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+1C10EA:
+mov [rabiribi.exe+167608C],eax
+//Alt: db A3 8C 60 6D 01
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>71</ID>
+              <Description>"无限金钱-商店消耗"</Description>
+              <LastState/>
+              <Color>0080FF</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//sub [rabiribi.exe+167608C],esi
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+29134:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+29134:
+sub [rabiribi.exe+167608C],esi
+//Alt: db 29 35 8C 60 6D 01
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>37</ID>
+          <Description>"仅仅规避个人收到的伤害"</Description>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+cmp edi,0
+je exit
+mov [esi+edi+000004DC],eax
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+8D368:
+jmp newmem
+nop 2
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+8D368:
+mov [esi+edi+000004DC],eax
+//Alt: db 89 84 3E DC 04 00 00
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>114</ID>
+          <Description>"取消敌人无敌状态"</Description>
+          <LastState/>
+          <Color>000080</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+jp rabiribi.exe+1BE729
+lea edx,[ecx-01]
+cmp ebx,00000000
+je exit
+mov edx,0
+jmp returnhere
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+1BE71D:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+1BE71D:
+jp rabiribi.exe+1BE729
+lea edx,[ecx-01]
+//Alt: db 7A 0A 8D 51 FF
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>35</ID>
+          <Description>"SP值不减"</Description>
+          <LastState/>
+          <Color>00C100</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//subss xmm0,xmm1
+cvttss2si eax,xmm0
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+84F7E:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+84F7E:
+subss xmm0,xmm1
+cvttss2si eax,xmm0
+//Alt: db F3 0F 5C C1 F3 0F 2C C0
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>64</ID>
+          <Description>"无限跳"</Description>
+          <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>800080</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>63</ID>
+              <Description>"next address to 0 not 1 under"</Description>
+              <LastState/>
+              <Color>800080</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//mov [edi+esi+00000644],00000001
+mov [edi+esi+00000644],00000000
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+94A3F:
+jmp newmem
+nop 6
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+94A3F:
+mov [edi+esi+00000644],00000001
+//Alt: db C7 84 37 44 06 00 00 01 00 00 00
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>60</ID>
+              <Description>"next address to 0 not 1"</Description>
+              <LastState/>
+              <Color>800080</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//mov [ecx+edi+00000644],00000001
+mov [ecx+edi+00000644],00000000
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+8CAF9:
+jmp newmem
+nop 6
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+8CAF9:
+mov [ecx+edi+00000644],00000001
+//Alt: db C7 84 39 44 06 00 00 01 00 00 00
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>62</ID>
+              <Description>"prev address to 0 not 6"</Description>
+              <LastState/>
+              <Color>800080</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//mov [ebx+esi+000004BC],00000006
+mov [ebx+esi+000004BC],00000000
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+1BDD15:
+jmp newmem
+nop 6
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+1BDD15:
+mov [ebx+esi+000004BC],00000006
+//Alt: db C7 84 33 BC 04 00 00 06 00 00 00
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>61</ID>
+              <Description>"prev address to 0 for eax"</Description>
+              <LastState/>
+              <Color>800080</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//mov [ebx+esi+000004BC],eax
+mov [ebx+esi+000004BC],0
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+1BDCFC:
+jmp newmem
+nop 2
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+1BDCFC:
+mov [ebx+esi+000004BC],eax
+//Alt: db 89 84 33 BC 04 00 00
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>66</ID>
+          <Description>"去除MP值消耗"</Description>
+          <LastState/>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//movss [esi+ecx+000006BC],xmm1
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+4F7D1:
+jmp newmem
+nop 4
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+4F7D1:
+movss [esi+ecx+000006BC],xmm1
+//Alt: db F3 0F 11 8C 0E BC 06 00 00
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>116</ID>
+          <Description>"无敌状态"</Description>
+          <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>800000</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>113</ID>
+              <Description>"受伤后一直处于无敌状态"</Description>
+              <LastState/>
+              <Color>800000</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+cmp ebx,00000000
+jne exit
+mov edx,20
+jmp exit
+
+exit:
+mov [ebx+esi+00000684],edx
+jmp returnhere
+
+"rabiribi.exe"+1BE722:
+jmp newmem
+nop 2
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+1BE722:
+mov [ebx+esi+00000684],edx
+//Alt: db 89 94 33 84 06 00 00
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>115</ID>
+              <Description>"进入新地图不更新变量“剩余无敌时间”"</Description>
+              <LastState/>
+              <Color>800000</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [esi+00000684],00000020
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+322689:
+jmp newmem
+nop 5
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+322689:
+mov [esi+00000684],00000000
+//Alt: db C7 86 84 06 00 00 00 00 00 00
+</AssemblerScript>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>120</ID>
+          <Description>"刷新基地址的时候，更新到99999（BOSS连击判定）"</Description>
+          <LastState/>
+          <Color>808000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [eax+000005C8],1869F
+mov ecx,[eax+000005C8]
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+57E72:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+57E72:
+mov ecx,[eax+000005C8]
+//Alt: db 8B 88 C8 05 00 00
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>29</ID>
+          <Description>"old address"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <Color>C0C0C0</Color>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>109</ID>
+              <Description>"2020-09-04"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>C0C0C0</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>107</ID>
+                  <Description>"edi + esi + 690"</Description>
+                  <LastState Value="1128792064" RealAddress="108EE950"/>
+                  <Color>C0C0C0</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>108EE2C0+690</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>108</ID>
+                  <Description>"仅仅规避个人收到的伤害"</Description>
+                  <LastState/>
+                  <Color>C0C0C0</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+cmp edi,00
+je exit
+cmp dword ptr [edi+esi+00000690],00
+jmp returnhere
+
+exit:
+mov [edi+esi+00000690],01
+cmp dword ptr [edi+esi+00000690],00
+jmp returnhere
+
+"rabiribi.exe"+8D34B:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+8D34B:
+cmp dword ptr [edi+esi+00000690],00
+//Alt: db 83 BC 37 90 06 00 00 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>117</ID>
+                  <Description>"剧情结束以后将“剩余无敌时间”修改"</Description>
+                  <LastState/>
+                  <Color>C0C0C0</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+cmp ebx,00000000
+je exit
+mov [ebx+esi+00000684],eax
+
+exit:
+mov [ebx+esi+00000684],20
+jmp returnhere
+
+"rabiribi.exe"+1BE776:
+jmp newmem
+nop 2
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+1BE776:
+mov [ebx+esi+00000684],eax
+//Alt: db 89 84 33 84 06 00 00
+</AssemblerScript>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>110</ID>
+              <Description>"long ago"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <Color>C0C0C0</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>26</ID>
+                  <Description>"unknown"</Description>
+                  <Color>C0C0C0</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>0E71BDF0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>25</ID>
+                  <Description>"unknown"</Description>
+                  <Color>C0C0C0</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>0E71BC94</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>28</ID>
+                  <Description>"unknown"</Description>
+                  <Color>C0C0C0</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>0E97982C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>27</ID>
+                  <Description>"unknown"</Description>
+                  <Color>C0C0C0</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>0E71BDF4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>24</ID>
+                  <Description>"unknown"</Description>
+                  <LastState Value="0" RealAddress="017C2960"/>
+                  <Color>C0C0C0</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>rabiribi.exe+16E2960</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>20</ID>
+                  <Description>"unknown"</Description>
+                  <Color>C0C0C0</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>0E71BD80</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>19</ID>
+                  <Description>"unknown"</Description>
+                  <LastState Value="0" RealAddress="017C0BEC"/>
+                  <Color>C0C0C0</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>rabiribi.exe+16E0BEC</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>22</ID>
+                  <Description>"unknown"</Description>
+                  <Color>C0C0C0</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>0E727A9C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>21</ID>
+                  <Description>"unknown"</Description>
+                  <Color>C0C0C0</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>0E727A98</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>3</ID>
+                  <Description>"EN"</Description>
+                  <LastState Value="0" RealAddress="0175608C"/>
+                  <Color>C0C0C0</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>rabiribi.exe+167608C</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>23</ID>
+                  <Description>"HP-to-10"</Description>
+                  <LastState/>
+                  <Color>C0C0C0</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov eax,[edi+esi+000004DC]
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+8D368:
+jmp newmem
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+8D368:
+mov [edi+esi+000004DC],eax
+//Alt: db 89 84 37 DC 04 00 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>18</ID>
+                  <Description>"HP"</Description>
+                  <LastState/>
+                  <Color>C0C0C0</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov eax,[edi+esi+000004DC]
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+8D368:
+jmp newmem
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+8D368:
+mov [edi+esi+000004DC],eax
+//Alt: db 89 84 37 DC 04 00 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>69</ID>
+                  <Description>"商店购买不减反增"</Description>
+                  <LastState/>
+                  <Color>C0C0C0</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//sub [rabiribi.exe+167608C],esi
+add [rabiribi.exe+167608C],esi
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+29134:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+29134:
+sub [rabiribi.exe+167608C],esi
+//Alt: db 29 35 8C 60 6D 01
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>38</ID>
+                  <Description>"无用研究"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <Color>C0C0C0</Color>
+                  <GroupHeader>1</GroupHeader>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>10</ID>
+                  <Description>"SP-使用-2"</Description>
+                  <LastState/>
+                  <Color>C0C0C0</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov eax,[ecx+edx+000005B8]
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+85072:
+jmp newmem
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+85072:
+mov [ecx+edx+000005B8],eax
+//Alt: db 89 84 11 B8 05 00 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>8</ID>
+                  <Description>"SP-增长"</Description>
+                  <LastState/>
+                  <Color>C0C0C0</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov eax,[ebx+ecx+000005B8]
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+1BEAFC:
+jmp newmem
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+1BEAFC:
+mov [ebx+ecx+000005B8],eax
+//Alt: db 89 84 0B B8 05 00 00
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>7</ID>
+                  <Description>"SP"</Description>
+                  <LastState Value="0" RealAddress="10520600"/>
+                  <Color>C0C0C0</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>10520600</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>9</ID>
+                  <Description>"SP-使用"</Description>
+                  <LastState/>
+                  <Color>C0C0C0</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov eax,[ecx+edx+000005B8]
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+84F86:
+jmp newmem
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+84F86:
+mov [ecx+edx+000005B8],eax
+//Alt: db 89 84 11 B8 05 00 00
+</AssemblerScript>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>33</ID>
+                      <Description>"所有伤害减少数值设为0"</Description>
+                      <LastState/>
+                      <Color>C0C0C0</Color>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//mov ecx,[ebp-10]
+mov ecx,0
+sub eax,ecx
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+8D363:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+8D363:
+mov ecx,[ebp-10]
+sub eax,ecx
+//Alt: db 8B 4D F0 2B C1
+</AssemblerScript>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>36</ID>
+                      <Description>"所有血量编辑为50"</Description>
+                      <LastState/>
+                      <Color>C0C0C0</Color>
+                      <VariableType>Auto Assembler Script</VariableType>
+                      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [esi+edi+000004DC],32
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+8D368:
+jmp newmem
+nop 2
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+8D368:
+mov [esi+edi+000004DC],eax
+//Alt: db 89 84 3E DC 04 00 00
+</AssemblerScript>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>34</ID>
+                  <Description>"SP值不减 - 旧版本"</Description>
+                  <LastState/>
+                  <Color>C0C0C0</Color>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov eax,[ecx+edx+000005B8]
+
+exit:
+jmp returnhere
+
+"rabiribi.exe"+84F86:
+jmp newmem
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"rabiribi.exe"+84F86:
+mov [ecx+edx+000005B8],eax
+//Alt: db 89 84 11 B8 05 00 00
+</AssemblerScript>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"change resource num to 999"</Description>
+      <LastState/>
+      <Color>0000FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+sub esi,eax
+mov eax,3E7
+add esi,eax
+mov [ebp-000000B0],eax
+
+exit:
+jmp returnhere
+
+"CraftWorld.exe"+3BC059:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CraftWorld.exe"+3BC059:
+mov [ebp-000000B0],eax
+//Alt: db 89 85 50 FF FF FF
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>12</ID>
+      <Description>"10.0x exp"</Description>
+      <LastState/>
+      <Color>4080FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+imul ecx,ecx,A
+add [esi+10],ecx
+mov [ebp-31],al
+
+exit:
+jmp returnhere
+
+"CraftWorld.exe"+4AC3DA:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CraftWorld.exe"+4AC3DA:
+add [esi+10],ecx
+mov [ebp-31],al
+//Alt: db 01 4E 10 88 45 CF
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7</ID>
+      <Description>"unlimited mana"</Description>
+      <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"make mana_value_of_ecx recorded"</Description>
+          <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState/>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+alloc(mana_value_of_ecx,8)
+registersymbol(mana_value_of_ecx)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+lea ecx,[edi+64]
+mov [mana_value_of_ecx],ecx
+call CraftWorld.CryptedVariable&lt;float&gt;::Get
+
+exit:
+jmp returnhere
+
+"CraftWorld.exe"+4B1615:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+dealloc(mana_value_of_ecx)
+unregistersymbol(mana_value_of_ecx)
+"CraftWorld.exe"+4B1615:
+lea ecx,[edi+64]
+call CraftWorld.CryptedVariable&lt;float&gt;::Get
+//Alt: db 8D 4F 64 E8 23 04 C8 FF
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>10</ID>
+              <Description>"make mana examine no use"</Description>
+              <Options moHideChildren="1"/>
+              <LastState/>
+              <Color>FF0000</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+cmp esi,[mana_value_of_ecx]
+je exit
+ucomiss xmm0,[ebp-08]
+pop esi
+jmp returnhere
+
+exit:
+push edx
+//初始化整型值
+mov edx,3E7
+//整型值转化为浮点值
+CVTSI2SS xmm0,edx
+//改变
+movss [ebp-08],xmm0
+movss [ebp-04],xmm0
+pop edx
+//解除 判定
+ucomiss xmm0,xmm0
+pop esi
+jmp returnhere
+
+"CraftWorld.exe"+131AA1:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CraftWorld.exe"+131AA1:
+ucomiss xmm0,[ebp-08]
+pop esi
+//Alt: db 0F 2E 45 F8 5E
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>9</ID>
+                  <Description>"mana_value_of_ecx"</Description>
+                  <LastState Value="1700660288" RealAddress="111F71DC"/>
+                  <Color>FF0000</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[mana_value_of_ecx]</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>6</ID>
+      <Description>"-----------------------"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"no use 1"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+jmp CraftWorld.World::ChangeResourceCount+69A
+cmp byte ptr [ebp+10],00
+
+exit:
+jmp returnhere
+
+"CraftWorld.exe"+3BC67B:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CraftWorld.exe"+3BC67B:
+jge CraftWorld.World::ChangeResourceCount+69A
+cmp byte ptr [ebp+10],00
+//Alt: db 7E 0D 80 7D 10 00
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"no use 2"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+alloc(item_num,8)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+xor eax,ebx
+xor eax,eax
+add eax,3E7
+mov [item_num],eax
+push edx
+lea edx,[item_num]
+xor edx,ebx
+mov [edi+000001D8],edx
+pop edx
+cmp dword ptr [ebp+0C],00
+
+exit:
+jmp returnhere
+
+"CraftWorld.exe"+3BC66F:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+dealloc(item_num)
+"CraftWorld.exe"+3BC66F:
+xor eax,ebx
+cmp dword ptr [ebp+0C],00
+//Alt: db 33 C3 83 7D 0C 00
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"ChangeResourceCount()"</Description>
+      <LastState Value="1793887061" RealAddress="0171BF70"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>0171BF70</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"no matter what it is"</Description>
+      <LastState Value="126" RealAddress="01CFC820"/>
+      <VariableType>Float</VariableType>
+      <Address>CraftWorld.exe+99C820</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>11</ID>
+      <Description>"temp - exp"</Description>
+      <LastState Value="187995" RealAddress="184F43A0"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>184F43A0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13</ID>
+      <Description>"base address of "CraftWorld.IEnemyBase::OnAttack""</Description>
+      <LastState Value="2213317461" RealAddress="0180DB10"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>0180DB10</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>14</ID>
+      <Description>"base address of "CratfWorld.EnemyManager::EnemyManager()""</Description>
+      <LastState Value="1793887061" RealAddress="0180DF30"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>0180DF30</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>15</ID>
+      <Description>"HitTestOn"</Description>
+      <LastState Value="1793887061" RealAddress="0180E650"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>0180E650</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

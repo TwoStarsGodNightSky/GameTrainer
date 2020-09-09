@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>6</ID>
+      <Description>"Unlimited Items"</Description>
+      <LastState/>
+      <Color>0000FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+xor eax,[esi+000001DC]
+push edx
+mov edx,0
+//----------[此时ecx是实际存储的值]
+cmp ecx,edx
+//如果 ecx == 0,则不进行修改
+je exit
+mov ecx,3E7
+mov eax,3E7
+mov edx,3E7
+xor edx,[esi+00000080]
+mov [esi+000001D8],edx
+mov edx,3E7
+xor edx,[esi+000001DC]
+mov [esi+000001E0],edx
+jmp exit
+
+
+exit:
+pop edx
+jmp returnhere
+
+"【天蓝色】巨龙时代VI -for 1.6007- v6.4 测试版.exe"+54ED8D:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"【天蓝色】巨龙时代VI -for 1.6007- v6.4 测试版.exe"+54ED8D:
+xor eax,[esi+000001DC]
+//Alt: db 33 86 DC 01 00 00
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Unlimited Mana"</Description>
+      <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"Reset Value Of "mana_address""</Description>
+          <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState/>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+alloc(mana_address,8)
+registersymbol(mana_address)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+lea ecx,[edi+64]
+mov [mana_address],ecx
+call "【天蓝色】巨龙时代VI -for 1.6007- v6.4 测试版.exe"+11EB10
+
+exit:
+jmp returnhere
+
+"【天蓝色】巨龙时代VI -for 1.6007- v6.4 测试版.exe"+46F196:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+dealloc(mana_address)
+unregistersymbol(mana_address)
+"【天蓝色】巨龙时代VI -for 1.6007- v6.4 测试版.exe"+46F196:
+lea ecx,[edi+64]
+call "【天蓝色】巨龙时代VI -for 1.6007- v6.4 测试版.exe"+11EB10
+//Alt: db 8D 4F 64 E8 72 F9 CA FF
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>3</ID>
+              <Description>"Read Data"</Description>
+              <Options moHideChildren="1"/>
+              <LastState/>
+              <Color>FF0000</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//判定是不是 Mana 值对应的 esi
+cmp esi,[mana_address]
+jne exit
+
+push edx
+//初始化整型值
+mov edx,3E7
+//整型值转化为浮点值
+CVTSI2SS xmm0,edx
+//改变
+movss [ebp-08],xmm0
+movss [ebp-04],xmm0
+pop edx
+//解除 判定
+ucomiss xmm0,xmm0
+pop esi
+jmp returnhere
+
+exit:
+ucomiss xmm0,[ebp-08]
+pop esi
+jmp returnhere
+
+"【天蓝色】巨龙时代VI -for 1.6007- v6.4 测试版.exe"+11EB71:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"【天蓝色】巨龙时代VI -for 1.6007- v6.4 测试版.exe"+11EB71:
+ucomiss xmm0,[ebp-08]
+pop esi
+//Alt: db 0F 2E 45 F8 5E
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>4</ID>
+                  <Description>"mana_address"</Description>
+                  <Color>FF0000</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>mana_address</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>8</ID>
+      <Description>"10.0 x Exp"</Description>
+      <LastState/>
+      <Color>00EE00</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+imul ecx,ecx,A
+add [esi+10],ecx
+mov [ebp-31],al
+
+exit:
+jmp returnhere
+
+"【天蓝色】巨龙时代VI -for 1.6007- v6.4 测试版.exe"+469F9A:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"【天蓝色】巨龙时代VI -for 1.6007- v6.4 测试版.exe"+469F9A:
+add [esi+10],ecx
+mov [ebp-31],al
+//Alt: db 01 4E 10 88 45 CF
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>5</ID>
+      <Description>"Other Address"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>C0C0C0</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>0</ID>
+          <Description>"false mana"</Description>
+          <LastState Value="6" RealAddress="00D33E4C"/>
+          <Color>C0C0C0</Color>
+          <VariableType>Float</VariableType>
+          <Address>"【天蓝色】巨龙时代VI -for 1.6007- v6.4 测试版.exe"+933E4C</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

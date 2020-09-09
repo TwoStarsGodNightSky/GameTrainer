@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>62</ID>
+      <Description>"disabled"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>C0C0C0</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>23</ID>
+          <Description>"money-disabled"</Description>
+          <LastState/>
+          <Color>C0C0C0</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,[[[["UnityPlayer.dll"+017ED468]+20]+0]+30]+30+ebdf0aef)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov eax,F423F
+mov [rdi+000000BC],eax
+
+exit:
+jmp returnhere
+
+1CD5516ADBF:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+1CD5516ADBF:
+mov [rdi+000000BC],eax
+//Alt: db 89 87 BC 00 00 00
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>24</ID>
+          <Description>"exp-disabled"</Description>
+          <LastState/>
+          <Color>C0C0C0</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,1CE1122A6EF) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov eax,999999
+mov [rdi+000000B8],eax
+
+exit:
+jmp returnhere
+
+1CE1122A6EF:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+1CE1122A6EF:
+mov [rdi+000000B8],eax
+//Alt: db 89 87 B8 00 00 00
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1</ID>
+          <Description>"money-99999-disabled"</Description>
+          <LastState/>
+          <Color>C0C0C0</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,2C851F1B93F) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov eax,F423F
+mov [rdi+000000BC],eax
+
+
+exit:
+jmp returnhere
+
+2C851F1B93F:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+2C851F1B93F:
+mov [rdi+000000BC],eax
+//Alt: db 89 87 BC 00 00 00
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"exp-90000010-disabled"</Description>
+          <LastState/>
+          <Color>C0C0C0</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,2C8CB5742DF) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov eax,5D4A8A
+mov [rdi+000000B8],eax
+
+exit:
+jmp returnhere
+
+2C8CB5742DF:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+2C8CB5742DF:
+mov [rdi+000000B8],eax
+//Alt: db 89 87 B8 00 00 00
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>20</ID>
+          <Description>"nodamage-disabled"</Description>
+          <LastState/>
+          <Color>C0C0C0</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,2C851EFD7BB) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov r14,rax
+mov dword ptr [rdi+3C],0
+
+movsxd  rax,dword ptr [rdi+3C]
+
+exit:
+jmp returnhere
+
+2C851EFD7BB:
+jmp newmem
+nop 2
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+2C851EFD7BB:
+mov r14,rax
+movsxd  rax,dword ptr [rdi+3C]
+//Alt: db 4C 8B F0 CC 63 47 3C
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>63</ID>
+      <Description>"tmp-data"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>000080</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>58</ID>
+          <Description>"SetItem"</Description>
+          <LastState/>
+          <Color>000080</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(item1,8)
+alloc(item2,8)
+registersymbol(item1)
+registersymbol(item2)
+
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+unregistersymbol(item2)
+dealloc(item2)
+unregistersymbol(item1)
+dealloc(item1)
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>59</ID>
+          <Description>"item1"</Description>
+          <Color>000080</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>item1</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>60</ID>
+          <Description>"item2"</Description>
+          <Color>000080</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>item2</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>64</ID>
+      <Description>"simple-basic-address"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>008000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>26</ID>
+          <Description>"Zengon.exe"</Description>
+          <Color>008000</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"Zengeon.exe"</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>27</ID>
+          <Description>"mono-2.0-bdwgc.dll"</Description>
+          <Color>008000</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"mono-2.0-bdwgc.dll"</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>28</ID>
+          <Description>"UnityPlayer.dll"</Description>
+          <Color>008000</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"UnityPlayer.dll"</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>57</ID>
+          <Description>"["UnityPlayer.dll"+017ED468]"</Description>
+          <Color>008000</Color>
+          <VariableType>8 Bytes</VariableType>
+          <Address>["UnityPlayer.dll"+017ED468]</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>130</ID>
+      <Description>"Reset"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>00FF00</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>79</ID>
+          <Description>"no damage"</Description>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+alloc(newmem,2048,[[[[[[["mono-2.0-bdwgc.dll"+004A33E0]+288]+0]+60]+50]+70]+E8]+16E)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+
+originalcode:
+mov dword ptr [rbp-50],0
+movsxd  rdx,dword ptr [rbp-50]
+movzx r9d,byte ptr [rbp-58]
+
+exit:
+jmp returnhere
+
+[[[[[[["mono-2.0-bdwgc.dll"+004A33E0]+288]+0]+60]+50]+70]+E8]+16E:
+jmp newmem
+nop 4
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+dealloc(newmem)
+[[[[[[["mono-2.0-bdwgc.dll"+004A33E0]+288]+0]+60]+50]+70]+E8]+16E:
+movsxd  rdx,dword ptr [rbp-50]
+movzx r9d,byte ptr [rbp-58]
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>131</ID>
+          <Description>"set itemad"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(itemad,8)
+registersymbol(itemad)
+ 
+ 
+[DISABLE]
+unregistersymbol(itemad)
+dealloc(itemad)
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>132</ID>
+          <Description>"itemad"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>itemad</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>65</ID>
+      <Description>"address"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>61</ID>
+          <Description>"money-address"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>40</ID>
+              <Description>"add"</Description>
+              <Color>0000FF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"UnityPlayer.dll"+017ED468</Address>
+              <Offsets>
+                <Offset>BC</Offset>
+                <Offset>28</Offset>
+                <Offset>28</Offset>
+                <Offset>30</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>30</Offset>
+                <Offset>E8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>37</ID>
+              <Description>"add"</Description>
+              <Color>00FF00</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"UnityPlayer.dll"+017ED468</Address>
+              <Offsets>
+                <Offset>BC</Offset>
+                <Offset>D8</Offset>
+                <Offset>28</Offset>
+                <Offset>18</Offset>
+                <Offset>30</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>38</ID>
+              <Description>"add"</Description>
+              <Color>00FF00</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"UnityPlayer.dll"+017ED468</Address>
+              <Offsets>
+                <Offset>BC</Offset>
+                <Offset>28</Offset>
+                <Offset>38</Offset>
+                <Offset>1F8</Offset>
+                <Offset>30</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>39</ID>
+              <Description>"add"</Description>
+              <Color>00FF00</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"UnityPlayer.dll"+017ED468</Address>
+              <Offsets>
+                <Offset>BC</Offset>
+                <Offset>28</Offset>
+                <Offset>28</Offset>
+                <Offset>30</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>42</ID>
+              <Description>"add"</Description>
+              <Color>00FF00</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"UnityPlayer.dll"+017ED468</Address>
+              <Offsets>
+                <Offset>BC</Offset>
+                <Offset>28</Offset>
+                <Offset>D8</Offset>
+                <Offset>28</Offset>
+                <Offset>30</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>43</ID>
+              <Description>"add"</Description>
+              <Color>00FF00</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"UnityPlayer.dll"+017ED468</Address>
+              <Offsets>
+                <Offset>BC</Offset>
+                <Offset>28</Offset>
+                <Offset>C0</Offset>
+                <Offset>28</Offset>
+                <Offset>30</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>54</ID>
+              <Description>"add"</Description>
+              <Color>00FF00</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"UnityPlayer.dll"+017ED468</Address>
+              <Offsets>
+                <Offset>BC</Offset>
+                <Offset>28</Offset>
+                <Offset>110</Offset>
+                <Offset>28</Offset>
+                <Offset>30</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>55</ID>
+              <Description>"add"</Description>
+              <Color>00FF00</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"UnityPlayer.dll"+017ED468</Address>
+              <Offsets>
+                <Offset>BC</Offset>
+                <Offset>28</Offset>
+                <Offset>90</Offset>
+                <Offset>28</Offset>
+                <Offset>30</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>56</ID>
+              <Description>"add"</Description>
+              <Color>00FF00</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"UnityPlayer.dll"+017ED468</Address>
+              <Offsets>
+                <Offset>BC</Offset>
+                <Offset>28</Offset>
+                <Offset>A8</Offset>
+                <Offset>28</Offset>
+                <Offset>30</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>66</ID>
+          <Description>"exp-address"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>67</ID>
+              <Description>"add"</Description>
+              <Color>0000FF</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"UnityPlayer.dll"+017ED468</Address>
+              <Offsets>
+                <Offset>B8</Offset>
+                <Offset>28</Offset>
+                <Offset>28</Offset>
+                <Offset>30</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>30</Offset>
+                <Offset>E8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>68</ID>
+              <Description>"add"</Description>
+              <Color>00FF00</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"UnityPlayer.dll"+017ED468</Address>
+              <Offsets>
+                <Offset>B8</Offset>
+                <Offset>D8</Offset>
+                <Offset>28</Offset>
+                <Offset>18</Offset>
+                <Offset>30</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>69</ID>
+              <Description>"add"</Description>
+              <Color>00FF00</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"UnityPlayer.dll"+017ED468</Address>
+              <Offsets>
+                <Offset>B8</Offset>
+                <Offset>28</Offset>
+                <Offset>38</Offset>
+                <Offset>1F8</Offset>
+                <Offset>30</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>70</ID>
+              <Description>"add"</Description>
+              <Color>00FF00</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"UnityPlayer.dll"+017ED468</Address>
+              <Offsets>
+                <Offset>B8</Offset>
+                <Offset>28</Offset>
+                <Offset>28</Offset>
+                <Offset>30</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>71</ID>
+              <Description>"add"</Description>
+              <Color>00FF00</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"UnityPlayer.dll"+017ED468</Address>
+              <Offsets>
+                <Offset>B8</Offset>
+                <Offset>28</Offset>
+                <Offset>D8</Offset>
+                <Offset>28</Offset>
+                <Offset>30</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>72</ID>
+              <Description>"add"</Description>
+              <Color>00FF00</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"UnityPlayer.dll"+017ED468</Address>
+              <Offsets>
+                <Offset>B8</Offset>
+                <Offset>28</Offset>
+                <Offset>C0</Offset>
+                <Offset>28</Offset>
+                <Offset>30</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>73</ID>
+              <Description>"add"</Description>
+              <Color>00FF00</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"UnityPlayer.dll"+017ED468</Address>
+              <Offsets>
+                <Offset>B8</Offset>
+                <Offset>28</Offset>
+                <Offset>110</Offset>
+                <Offset>28</Offset>
+                <Offset>30</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>74</ID>
+              <Description>"add"</Description>
+              <Color>00FF00</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"UnityPlayer.dll"+017ED468</Address>
+              <Offsets>
+                <Offset>B8</Offset>
+                <Offset>28</Offset>
+                <Offset>90</Offset>
+                <Offset>28</Offset>
+                <Offset>30</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>75</ID>
+              <Description>"add"</Description>
+              <Color>00FF00</Color>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"UnityPlayer.dll"+017ED468</Address>
+              <Offsets>
+                <Offset>B8</Offset>
+                <Offset>28</Offset>
+                <Offset>A8</Offset>
+                <Offset>28</Offset>
+                <Offset>30</Offset>
+                <Offset>30</Offset>
+                <Offset>0</Offset>
+                <Offset>20</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>127</ID>
+          <Description>"tmp_write_address"</Description>
+          <Color>008080</Color>
+          <VariableType>4 Bytes</VariableType>
+          <Address>[[[[[[["mono-2.0-bdwgc.dll"+004A33E0]+288]+0]+60]+50]+70]+E8]+16E</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>124</ID>
+      <Description>"relation"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF00FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>88</ID>
+          <Description>"push rbp"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>2AC333B85EE-16E</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>87</ID>
+          <Description>"movsxd  rdx,dword ptr [rbp-50]"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>2AC333B85EE</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>125</ID>
+      <Description>"PUSH RBP Group"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>113</ID>
+          <Description>"add"</Description>
+          <Color>FF0000</Color>
+          <VariableType>8 Bytes</VariableType>
+          <Address>"mono-2.0-bdwgc.dll"+00493DE8</Address>
+          <Offsets>
+            <Offset>0</Offset>
+            <Offset>E8</Offset>
+            <Offset>70</Offset>
+            <Offset>50</Offset>
+            <Offset>60</Offset>
+            <Offset>0</Offset>
+            <Offset>750</Offset>
+            <Offset>98</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>114</ID>
+          <Description>"add"</Description>
+          <Color>FF0000</Color>
+          <VariableType>8 Bytes</VariableType>
+          <Address>"mono-2.0-bdwgc.dll"+004A33E0</Address>
+          <Offsets>
+            <Offset>0</Offset>
+            <Offset>E8</Offset>
+            <Offset>70</Offset>
+            <Offset>50</Offset>
+            <Offset>60</Offset>
+            <Offset>0</Offset>
+            <Offset>750</Offset>
+            <Offset>298</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>121</ID>
+          <Description>"add"</Description>
+          <Color>FF0000</Color>
+          <VariableType>8 Bytes</VariableType>
+          <Address>"mono-2.0-bdwgc.dll"+00493DE8</Address>
+          <Offsets>
+            <Offset>0</Offset>
+            <Offset>E8</Offset>
+            <Offset>70</Offset>
+            <Offset>50</Offset>
+            <Offset>60</Offset>
+            <Offset>0</Offset>
+            <Offset>88</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>122</ID>
+          <Description>"add"</Description>
+          <Color>FF0000</Color>
+          <VariableType>8 Bytes</VariableType>
+          <Address>"mono-2.0-bdwgc.dll"+004A3508</Address>
+          <Offsets>
+            <Offset>0</Offset>
+            <Offset>E8</Offset>
+            <Offset>70</Offset>
+            <Offset>50</Offset>
+            <Offset>60</Offset>
+            <Offset>0</Offset>
+            <Offset>288</Offset>
+            <Offset>230</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>123</ID>
+          <Description>"add"</Description>
+          <Color>FF0000</Color>
+          <VariableType>8 Bytes</VariableType>
+          <Address>"mono-2.0-bdwgc.dll"+004A33E0</Address>
+          <Offsets>
+            <Offset>0</Offset>
+            <Offset>E8</Offset>
+            <Offset>70</Offset>
+            <Offset>50</Offset>
+            <Offset>60</Offset>
+            <Offset>0</Offset>
+            <Offset>288</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>

@@ -1,0 +1,1708 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>20</ID>
+      <Description>"Change Item To 999 -------------- [ No examine Error ]"</Description>
+      <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>0000FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>7</ID>
+          <Description>"change item to num of 999"</Description>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//赋值2121787623 （7E77E8E7）给[esi+000000088]
+push ebx
+//lea ebx,[item_num]
+//mov ebx,[ebx]
+mov ebx,3E7
+xor ebx,ecx
+mov [esi+00000088],ebx
+pop ebx
+xor ecx,[esi+00000088]
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+3009D7:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+3009D7:
+xor ecx,[esi+00000088]
+//Alt: db 33 8E 88 00 00 00
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>19</ID>
+          <Description>"change item of num of 999 in examine"</Description>
+          <LastState/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+push ebx
+//lea ebx,[item_num]
+//mov ebx,[ebx]
+mov ebx,3E7
+xor ebx,[esi+000001F4]
+mov [esi+000001F8],ebx
+pop ebx
+mov eax,[esi+000001F8]
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+3009DD:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+3009DD:
+mov eax,[esi+000001F8]
+//Alt: db 8B 86 F8 01 00 00
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>21</ID>
+      <Description>"Change Item To 999 ---------------- [ Only Exists]"</Description>
+      <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>4080FF</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>22</ID>
+          <Description>"Change Item ------- only exists things"</Description>
+          <LastState/>
+          <Color>4080FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+xor eax,[esi+000001F4]
+push ebx
+push edx
+// ebx 用于保存 999 数据 （item_num的值）
+//lea ebx,[item_num]
+mov ebx,3E7
+// edx 用于 存储 临时数据
+//lea edx,[item_sys]
+mov edx,0
+//mov ebx,[ebx]
+//---[edx置为0]
+//xor edx,edx
+//---[比较ecx与0的大小]
+cmp ecx,edx
+//---[存储物品值 等于 0，则不进行修改]
+je exit
+//---[如果不是零，做修改]
+mov ecx,3E7
+mov eax,3E7
+//------（修改至999）
+//真实存储值修改
+mov edx,3E7
+xor edx,[esi+00000088]
+mov [esi+000001F0],edx
+//检验存储值修改
+mov edx,3E7
+xor edx,[esi+000001F4]
+mov [esi+000001F8],edx
+
+jmp exit
+
+exit:
+//释放
+pop edx
+pop ebx
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+3009E3:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+3009E3:
+xor eax,[esi+000001F4]
+//Alt: db 33 86 F4 01 00 00
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>58</ID>
+      <Description>"Unlimited Mana"</Description>
+      <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>59</ID>
+          <Description>"Reset Value Of "esi_value""</Description>
+          <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState/>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+alloc(esi_value,8)
+registersymbol(esi_value)
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+lea ecx,[ebx+60]
+mov [esi_value],ecx
+call "CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+61050
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2319C7:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+dealloc(esi_value)
+unregistersymbol(esi_value)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2319C7:
+lea ecx,[ebx+60]
+call "CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+61050
+//Alt: db 8D 4B 60 E8 81 F6 E2 FF
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>57</ID>
+              <Description>"ReadData"</Description>
+              <Options moHideChildren="1"/>
+              <LastState/>
+              <Color>FF0000</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [ebp-05],al
+//判定是不是 Mana 值对应的 esi
+cmp esi,[esi_value]
+jne exit
+
+push edx
+//初始化整型值
+mov edx,3E7
+//整型值转化为浮点值
+CVTSI2SS xmm0,edx
+//改变
+movss [ebp-08],xmm0
+movss [ebp-04],xmm0
+pop edx
+//解除 判定
+ucomiss xmm0,xmm0
+jmp returnhere
+
+
+exit:
+ucomiss xmm0,[ebp-08]
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+610AA:
+jmp newmem
+nop 2
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+610AA:
+mov [ebp-05],al
+ucomiss xmm0,[ebp-08]
+//Alt: db 88 45 FB 0F 2E 45 F8
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>60</ID>
+                  <Description>"esi_value"</Description>
+                  <Color>FF0000</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>esi_value</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>84</ID>
+      <Description>"Unlimited Satiety"</Description>
+      <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <Color>008080</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>83</ID>
+          <Description>"Reset Value Of "ecx_value""</Description>
+          <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+          <LastState/>
+          <Color>008080</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+alloc(ecx_value,8)
+registersymbol(ecx_value)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+lea ecx,[edi+000000D4]
+mov [ecx_value],ecx
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2CE93D:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+dealloc(ecx_value)
+unregistersymbol(ecx_value)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2CE93D:
+lea ecx,[edi+000000D4]
+//Alt: db 8D 8F D4 00 00 00
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>85</ID>
+              <Description>"ReadData"</Description>
+              <Options moHideChildren="1"/>
+              <LastState/>
+              <Color>008080</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov al,[esi+07]
+xor al,[ebp-09]
+// Start
+//判定是不是 Satiety 值对应的 ecx (esi)
+cmp esi,[ecx_value]
+jne exit
+
+push edx
+
+//初始化整型值
+mov edx,0A
+
+//整型值转化为浮点值
+CVTSI2SS xmm0,edx
+
+//改变
+movss [ebp-08],xmm0
+movss [ebp-04],xmm0
+pop edx
+ucomiss xmm0,xmm0
+//跳过 判定
+jmp 004610B1
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+610A4:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+610A4:
+mov al,[esi+07]
+xor al,[ebp-09]
+//Alt: db 8A 46 07 32 45 F7
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>86</ID>
+                  <Description>"ecx_value"</Description>
+                  <Color>008080</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>ecx_value</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>24</ID>
+      <Description>"---------------------------------------------------------"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>33</ID>
+      <Description>"research-2020-06-30"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>70</ID>
+          <Description>"aft_bef   cvttss2si esi,xmm0"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+movsd [time1],xmm0
+mov [time4],esi
+cvttss2si esi,xmm0
+mov [ebp-74],esi
+mov [time3],esi
+movsd [time2],xmm0
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2319D7:
+jmp newmem
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2319D7:
+cvttss2si esi,xmm0
+mov [ebp-74],esi
+//Alt: db F3 0F 2C F0 89 75 8C
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>71</ID>
+          <Description>"aft_bef   movss xmm0,[ebp-04]"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+movsd [time1],xmm0
+movss xmm0,[ebp-04]
+movsd [time2],xmm0
+
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+61086:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+61086:
+movss xmm0,[ebp-04]
+//Alt: db F3 0F 10 45 FC
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>72</ID>
+          <Description>"aft_bef   call 00461050"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+movsd [time1],xmm0
+call "CTW-����ʱ��V  v5.7��1.4013"-���ƪ.CryptedVariable&lt;float&gt;::Get
+movsd [time2],xmm0
+mov [time3],ecx
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2319CA:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2319CA:
+call "CTW-����ʱ��V  v5.7��1.4013"-���ƪ.CryptedVariable&lt;float&gt;::Get
+//Alt: db E8 81 F6 E2 FF
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>25</ID>
+          <Description>"aft_bef   ucomiss xmm0,[ebp-08]"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+movss [time3],xmm0
+ucomiss xmm0,[ebp-08]
+pop esi
+movss xmm0,[ebp-08]
+movss [time4],xmm0
+movss xmm0,[time3]
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+610AD:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+610AD:
+ucomiss xmm0,[ebp-08]
+pop esi
+//Alt: db 0F 2E 45 F8 5E
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>26</ID>
+          <Description>"aft_bef   xor al,dl"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [time1],al
+mov [time2],dl
+xor al,dl
+mov [time3],al
+mov [time4],dl
+mov ecx,[esi+0C]
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+6105E:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+6105E:
+xor al,dl
+mov ecx,[esi+0C]
+//Alt: db 32 C2 8B 4E 0C
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>28</ID>
+          <Description>"aft_bef   cmp eax,[edi+6F]"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [time1],eax
+push edx
+lea edx,[edi+6F]
+mov [time2],edx
+pop edx
+cmp eax,[edi+6F]
+push esp
+jb "CTW-����ʱ��V  v5.7��1.4013-���ƪ.MMSG::TrueMP_WorldCreated"+1E
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+57B56B:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+57B56B:
+cmp eax,[edi+6F]
+push esp
+jb "CTW-����ʱ��V  v5.7��1.4013-���ƪ.MMSG::TrueMP_WorldCreated"+1E
+//Alt: db 3B 47 6F 54 72 61
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>73</ID>
+          <Description>"aft_bef   call 00461050"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+movsd [time1],xmm0
+call "CTW-����ʱ��V  v5.7��1.4013"-���ƪ.CryptedVariable&lt;float&gt;::Get
+movsd [time2],xmm0
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2319E9:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2319E9:
+call "CTW-����ʱ��V  v5.7��1.4013"-���ƪ.CryptedVariable&lt;float&gt;::Get
+//Alt: db E8 62 F6 E2 FF
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>74</ID>
+          <Description>"aft_bef   test esi, esi"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [time1],esi
+test esi,esi
+je "CTW-����ʱ��V  v5.7��1.4013-���ƪ.Game::OnOneSecondTickerTimer"+269
+mov [time2],esi
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2319DE:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2319DE:
+test esi,esi
+je "CTW-����ʱ��V  v5.7��1.4013-���ƪ.Game::OnOneSecondTickerTimer"+269
+//Alt: db 85 F6 0F 84 13 02 00 00
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>27</ID>
+          <Description>"Death"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+push edx
+mov edx,A
+CVTSI2SS xmm0,edx
+movss [ebp-04],xmm0
+movss xmm0,[ebp-04]
+pop edx
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+61086:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+61086:
+movss xmm0,[ebp-04]
+//Alt: db F3 0F 10 45 FC
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>75</ID>
+          <Description>"nop   call 00461050 (变量加密)"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//call "CTW-����ʱ��V  v5.7��1.4013"-���ƪ.CryptedVariable&lt;float&gt;::Get
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2319CA:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2319CA:
+call "CTW-����ʱ��V  v5.7��1.4013"-���ƪ.CryptedVariable&lt;float&gt;::Get
+//Alt: db E8 81 F6 E2 FF
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>30</ID>
+          <Description>"ucomiss xmm0,xmm0（解除float变量校验）"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+ucomiss xmm0,xmm0
+pop esi
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+610AD:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+610AD:
+ucomiss xmm0,[ebp-08]
+pop esi
+//Alt: db 0F 2E 45 F8 5E
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>76</ID>
+      <Description>"research-2020-07-01"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1</ID>
+          <Description>"Data reset"</Description>
+          <Options moHideChildren="1"/>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+alloc(time1,8)
+alloc(time2,8)
+alloc(time3,8)
+alloc(time4,8)
+registersymbol(time1)
+registersymbol(time2)
+registersymbol(time3)
+registersymbol(time4)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+subss xmm0,["CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+58812C]
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2319CF:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+dealloc(time1)
+unregistersymbol(time1)
+dealloc(time2)
+unregistersymbol(time2)
+dealloc(time3)
+unregistersymbol(time3)
+dealloc(time4)
+unregistersymbol(time4)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2319CF:
+subss xmm0,["CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+58812C]
+//Alt: db F3 0F 5C 05 2C 81 98 00
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>61</ID>
+              <Description>"time-----------------------1"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>2</ID>
+                  <Description>"time1"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>time1</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>62</ID>
+                  <Description>"[time1]"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[time1]</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>11</ID>
+                  <Description>"time1-float"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>time1</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>63</ID>
+              <Description>"time-----------------------2"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>3</ID>
+                  <Description>"time2"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>time2</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>64</ID>
+                  <Description>"[time2]"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[time2]</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>65</ID>
+                  <Description>"time2-float"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>time2</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>66</ID>
+              <Description>"time-----------------------3"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>4</ID>
+                  <Description>"time3"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>time3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>67</ID>
+                  <Description>"[time3]"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[time3]</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>16</ID>
+                  <Description>"time3-float"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>time3</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>17</ID>
+                  <Description>"[time3]-float"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>[time3]</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>68</ID>
+              <Description>"time-----------------------4"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>5</ID>
+                  <Description>"time4"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>time4</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>6</ID>
+                  <Description>"[time4]"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[time4]</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>69</ID>
+                  <Description>"time4-float"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>time4</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>0</ID>
+              <Description>"Mana-error"</Description>
+              <VariableType>Float</VariableType>
+              <Address>"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+58812C</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"Reset-set values"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+alloc(item_num,8)
+alloc(item_sys,8)
+alloc(item1,8)
+alloc(item2,8)
+alloc(item3,8)
+label(returnhere)
+label(originalcode)
+label(exit)
+registersymbol(item_num)
+registersymbol(item_sys)
+registersymbol(item1)
+registersymbol(item2)
+registersymbol(item3)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [esi+00000140],eax
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+362D42:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+dealloc(item_num)
+unregistersymbol(item_num)
+dealloc(item_sys)
+unregistersymbol(item_sys)
+dealloc(item1)
+unregistersymbol(item1)
+dealloc(item2)
+unregistersymbol(item2)
+dealloc(item3)
+unregistersymbol(item3)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+362D42:
+mov [esi+00000140],eax
+//Alt: db 89 86 40 01 00 00
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>12</ID>
+          <Description>"ignore_the_num_examine - unsupported"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//解除校验
+cmp ecx,ecx
+cmove edi,ecx
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+3009E9:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+3009E9:
+cmp ecx,eax
+cmove edi,ecx
+//Alt: db 3B C8 0F 44 F9
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"item_num"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>item_num</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>23</ID>
+          <Description>"item_sys"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>item_sys</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>18</ID>
+          <Description>"all your person killed - never click this"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+movss [ebp-04],xmm0
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+61086:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+61086:
+movss xmm0,[ebp-04]
+//Alt: db F3 0F 10 45 FC
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10</ID>
+          <Description>"item1"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>item1</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>14</ID>
+          <Description>"item2"</Description>
+          <VariableType>Float</VariableType>
+          <Address>item2</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>15</ID>
+          <Description>"item3"</Description>
+          <VariableType>Float</VariableType>
+          <Address>item3</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>13</ID>
+          <Description>"Mana-answer-no use for cheat"</Description>
+          <VariableType>Float</VariableType>
+          <Address>"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+58812C</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>32</ID>
+      <Description>"research-2020-07-02"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>31</ID>
+          <Description>"esi on [ebp-74]"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [ebp-74],esi
+mov [time1],esi
+test esi,esi
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2319DB:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2319DB:
+mov [ebp-74],esi
+test esi,esi
+//Alt: db 89 75 8C 85 F6
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>34</ID>
+          <Description>"nop call change ecx"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+//call "CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+61050
+nop
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2319E9:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2319E9:
+call "CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+61050
+//Alt: db E8 62 F6 E2 FF
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>35</ID>
+          <Description>"one sub 1"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [time1],ecx
+sub ecx,[edi]
+mov [time2],ecx
+push edx
+lea edx,[edi]
+mov [time3],edx
+pop edx
+imul ecx
+push 30
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+231951:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+231951:
+sub ecx,[edi]
+imul ecx
+push 30
+//Alt: db 2B 0F F7 E9 6A 30
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>37</ID>
+          <Description>"datas of One Second"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>36</ID>
+              <Description>"ecx------------------------formal"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+57B548</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>48</ID>
+              <Description>"maybe ebp"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>00C3FD50</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>50</ID>
+              <Description>"maybe ebp"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>00C3FD90</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>49</ID>
+              <Description>"ebp------------------write to [time1]-------------Out of examine"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [time1],esp
+call "CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+134100
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2319C2:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2319C2:
+call "CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+134100
+//Alt: db E8 39 27 F0 FF
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>45</ID>
+              <Description>"ebp------------------write to [time1]-------------In examine"</Description>
+              <LastState/>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [time1],ebp
+mov esi,ecx
+mov [time2],esi
+mov edx,[esi+08]
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+61057:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+61057:
+mov esi,ecx
+mov edx,[esi+08]
+//Alt: db 8B F1 8B 56 08
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>46</ID>
+                  <Description>"[ebp-04]"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <VariableType>Float</VariableType>
+                  <Address>[time1]-04</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>47</ID>
+                  <Description>"[ebp-08]"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>[time1]-08</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>53</ID>
+                  <Description>"[ebp-07]"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>[time1]-07</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>39</ID>
+              <Description>"esi ------------ group-------------of mana"</Description>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>56</ID>
+                  <Description>"esi"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>0C9BEDA0</Address>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>52</ID>
+          <Description>"Destory"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+mov [ebp-05],al
+//----------------&lt;Start&gt;-------------------//
+//此时[ebp-04]和[ebp-08]已经是结果了...
+//我们倒着把数据改回去
+//---- edx的值为要改成的数据
+push edx
+mov edx,6
+
+mov [ebp-08],edx
+mov al,[ebp-05]
+xor al,[ebp-09]
+mov [esi+07],al
+
+mov al,[ebp-06]
+xor al,[ebp-0A]
+mov [esi+06],al
+
+mov al,[ebp-07]
+xor al,ch
+mov [esi+05],al
+
+mov al,[ebp-08]
+xor al,cl
+mov [esi+04],al
+
+mov [ebp-04],edx
+movss xmm0,[ebp-04]
+mov al,[ebp-01]
+xor al,[ebp-05]
+mov [esi+03],al
+
+mov al,[ebp-02]
+xor al,[ebp-06]
+mov [esi+02],al
+
+mov al,[ebp-03]
+xor al,dh
+mov [esi+01],al
+
+mov al,[ebp-04]
+xor al,dl
+mov [esi],al
+
+pop edx
+//----------------&lt; End &gt;-------------------//
+ucomiss xmm0,[ebp-08]
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+610AA:
+jmp newmem
+nop 2
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+610AA:
+mov [ebp-05],al
+ucomiss xmm0,[ebp-08]
+//Alt: db 88 45 FB 0F 2E 45 F8
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>79</ID>
+      <Description>"research-2020-07-03"</Description>
+      <Options moHideChildren="1"/>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>77</ID>
+          <Description>"blood-??"</Description>
+          <VariableType>Float</VariableType>
+          <Address>279903F0</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>81</ID>
+          <Description>"hungry"</Description>
+          <VariableType>Float</VariableType>
+          <Address>27990C60</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>78</ID>
+          <Description>"blood"</Description>
+          <VariableType>Float</VariableType>
+          <Address>27990C64</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>80</ID>
+          <Description>"jb"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+jb "CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+23025F
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2301C0:
+jmp newmem
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2301C0:
+jb "CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+23025F
+//Alt: db 0F 82 99 00 00 00
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>82</ID>
+          <Description>"movss [868]"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+movss [edi+000008C8],xmm0
+
+exit:
+jmp returnhere
+
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2CE948:
+jmp newmem
+nop 3
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"CTW-巨龙时代V  v5.7－1.4013-完结篇.exe"+2CE948:
+movss [edi+000008C8],xmm0
+//Alt: db F3 0F 11 87 C8 08 00 00
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
